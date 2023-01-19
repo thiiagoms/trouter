@@ -1,7 +1,21 @@
 {
+    "name": "thiiagoms/trouter",
+    "authors": [
+        {
+            "name": "Thiago Silva AKA thiagoms",
+            "email": "thiagom.devsec@gmail.com",
+            "homepage": "https://thiiagoms.github.io"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "TRouter\\": "src/"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=PSR12"
     }
 }
