@@ -27,7 +27,7 @@ enum HttpCode
             self::SUCCESS        => 200,
             self::SUCCESS_CREATE => 201,
             self::NOT_FOUND      => 404,
-            self::SERVER_ERROR   => 500
+            self::SERVER_ERROR   => 500,
         };
     }
 }
