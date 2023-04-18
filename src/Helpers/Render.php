@@ -29,7 +29,6 @@ final class Render
     private static function getTemplate(string $template): string
     {
         $template = self::TEMPLATESDIR . $template . '.html';
-
         return file_exists($template)
             ? file_get_contents($template)
             : file_get_contents(self::TEMPLATESDIR . 'error.html');
@@ -44,7 +43,6 @@ final class Render
      */
     public static function render(string $view, array $headers = []): string
     {
-        $view = self::getTemplate($view);
-        return $view;
+        return self::getTemplate($view);
     }
 }
