@@ -10,7 +10,7 @@ services:
         image: trouter
         command: php -S 0.0.0.0:8000 -t public
         ports:
-          - 8000:8000
+            - 8000:8000
         container_name: trouter-app
         restart: unless-stopped
         working_dir: /var/www/
