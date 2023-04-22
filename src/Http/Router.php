@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TRouter\Http;
 
 use Closure;
+use ReflectionException;
 use ReflectionMethod;
 use TRouter\Helpers\Render;
 use TRouter\Enums\HttpCode;
@@ -107,7 +108,7 @@ final class Router
      * @param string $controller The name of the controller class
      * @param string $method The name of the method to check
      * @return bool Returns true if the method is static, false otherwise
-     * @throws \ReflectionException If the controller or method cannot be found
+     * @throws ReflectionException If the controller or method cannot be found
      */
     private function isStatic(string $controller, string $method): bool
     {
@@ -118,7 +119,7 @@ final class Router
      * Execute Router
      *
      * @return void
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function run(): void
     {
@@ -163,8 +164,13 @@ final class Router
             call_user_func_array($callback, [
                 array_merge($_GET, $_POST)
             ]);
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             die("Error in TRouter core: {$e->getMessage()}");
         }
+    }
+
+    public function getHandlers(): array
+    {
+        return $this->handlers;
     }
 }
